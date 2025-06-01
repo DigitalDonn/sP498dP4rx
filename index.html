@@ -11,11 +11,11 @@
     mobileMenuOpen: false,
     currentSlide: 0,
     slides: [
-        {id: 1, alt: 'Family enjoying pool', url: 'https://lh3.googleusercontent.com/p/AF1QipObkN6pvgdzKolAiyQJGaSNephRJmpaRM0HFjT9=s1360-w1360-h1020'},
-        {id: 2, alt: 'Couple relaxing', url: 'https://lh3.googleusercontent.com/p/AF1QipMqZ8my-irVQLvV9t0ROgtnVRswaxXnBckGshMm=s1360-w1360-h1020'},
-        {id: 3, alt: 'Group dining', url: 'https://lh3.googleusercontent.com/p/AF1QipMGGwmRFjuUmNIhM62pVIUJGTXrVXhkeVlbruKt=s1360-w1360-h1020'},
-        {id: 4, alt: 'Kids playing', url: 'https://lh3.googleusercontent.com/p/AF1QipM_L0k6Ogq0RklEqD5R63Tv5AheYE2XaQWpKLVA=s1360-w1360-h1020'},
-        {id: 5, alt: 'Evening bonfire', url: 'https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrW65i9S2_o0WsECzGr_ckHMTIpMLagGXbVQ5tr11CW6HkXOWdrHpg25BlsgNcSn7SSQ1WDooFQyWa3tLyA3qgrcuyUIog_4IK-_FW4O-Zr5SLEMeK508Bh_Mxc_zrITKKypAs=s1360-w1360-h1020'}
+        {id: 1, alt: 'Recreation and activities', url: 'public/assets/images/gallery/swimming-pool.webp'},
+        {id: 2, alt: 'Recreation and activities', url: 'public/assets/images/gallery/game-pool.webp'},
+        {id: 3, alt: 'Recreation and activities', url: 'public/assets/images/gallery/game-carrom.webp'},
+        {id: 4, alt: 'Recreation and activities', url: 'public/assets/images/gallery/game-table-tennis.webp'},
+        {id: 5, alt: 'Recreation and activities', url: 'public/assets/images/gallery/cottage-night.webp'}
     ],
     next() {
         this.currentSlide = (this.currentSlide + 1) % this.slides.length;
@@ -44,20 +44,13 @@
 	  
 	<!-- Open Graph / Facebook (for social sharing) -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://yourwebsite.com/">
-	<meta property="og:title" content="Your Website Title">
-	<meta property="og:description" content="Your social media description">
-	<meta property="og:image" content="https://yourwebsite.com/assets/images/social-preview.jpg">
+	<meta property="og:url" content="https://www.magnoliafields.in/">
+	<meta property="og:title" content="Magnolia Fields Farms & Resort - Comfort in Nature">
+	<meta property="og:description" content="Our cottages bring you the comfort of nature">
+	<meta property="og:image" content="https://www.magnoliafields.in/public/assets/images/logo/magnolia.png">
 	  
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://yourwebsite.com/">
-	<meta property="twitter:title" content="Your Website Title">
-	<meta property="twitter:description" content="Your Twitter description">
-    <meta property="twitter:image" content="https://yourwebsite.com/assets/images/social-preview.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
     
     <title>Magnolia Fields Farms & Resort - Comfort in Nature</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -98,7 +91,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
         
         .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://lh3.googleusercontent.com/p/AF1QipOCN2LM_pvJcjq9RoOanjwToCZBbjukb7nxfZ5e=s1360-w1360-h1020');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('public/assets/images/background/front-view.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -190,7 +183,7 @@
                             <a href="https://wa.me/917875105057" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
                                 <i class="fab fa-whatsapp mr-2 text-green-500"></i> WhatsApp
                             </a>
-                            <a href="mailto:bookings@magnoliaresort.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <a href="mailto:magnoliafields.ware@gmail.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-envelope mr-2 text-magnolia-primary"></i> Email
                             </a>
                         </div>
@@ -219,7 +212,7 @@
                         <a href="https://wa.me/917875105057" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
                             <i class="fab fa-whatsapp mr-2 text-green-500"></i> WhatsApp
                         </a>
-                        <a href="mailto:bookings@magnoliaresort.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                        <a href="mailto:magnoliafields.ware@gmail.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
                             <i class="fas fa-envelope mr-2 text-magnolia-primary"></i> Email
                         </a>
                     </div>
@@ -277,7 +270,7 @@
                 <!-- Group Room Card -->
                 <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/p/AF1QipODMr92NivLcmdvr_j-8-OTV8wsnFLkSfigyqNH=s1360-w1360-h1020" alt="Group Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <img src="public/assets/images/background/group-room.webp" alt="Group Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                         <div class="absolute top-4 right-4 bg-magnolia-primary text-white px-3 py-1 rounded-full text-sm font-bold">Popular</div>
                     </div>
                     <div class="p-6">
@@ -316,7 +309,7 @@
                 <!-- Family Room Card -->
                 <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/p/AF1QipODMr92NivLcmdvr_j-8-OTV8wsnFLkSfigyqNH=s1360-w1360-h1020" alt="Family Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <img src="public/assets/images/background/family-room.webp" alt="Family Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -354,7 +347,7 @@
                 <!-- Couple Room Card -->
                 <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/p/AF1QipODMr92NivLcmdvr_j-8-OTV8wsnFLkSfigyqNH=s1360-w1360-h1020" alt="Couple Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <img src="public/assets/images/background/couple-room.webp" alt="Couple Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                         <div class="absolute top-4 right-4 bg-magnolia-accent text-magnolia-dark px-3 py-1 rounded-full text-sm font-bold">Romantic</div>
                     </div>
                     <div class="p-6">
@@ -546,7 +539,7 @@
     </section>
 
     <!-- Parallax Section -->
-    <section class="parallax py-32 bg-fixed" style="background-image: url('https://lh3.googleusercontent.com/p/AF1QipMauOYdadJncjQ26-cprjKYwoJx70aqu7zZXlhH=s1360-w1360-h1020')">
+    <section class="parallax py-32 bg-fixed" style="background-image: url('public/assets/images/background/night-view.webp')">
         <div class="container mx-auto px-6 text-center text-white">
             <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
                 <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Experience Nature's Comfort</h2>
