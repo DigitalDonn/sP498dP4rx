@@ -1,0 +1,795 @@
+<!-- 
+  Project: Magnolia Fields Farms & Resort
+  Version: 1.0.0
+  Developer: Digital Donn
+  Contact: deeparulekar83@gmail.com
+  Last Updated: May 2025
+  License: MIT
+-->
+<!DOCTYPE html>
+<html lang="en" x-data="{ 
+    mobileMenuOpen: false,
+    currentSlide: 0,
+    slides: [
+        {id: 1, alt: 'Family enjoying pool', url: 'https://lh3.googleusercontent.com/p/AF1QipObkN6pvgdzKolAiyQJGaSNephRJmpaRM0HFjT9=s1360-w1360-h1020'},
+        {id: 2, alt: 'Couple relaxing', url: 'https://lh3.googleusercontent.com/p/AF1QipMqZ8my-irVQLvV9t0ROgtnVRswaxXnBckGshMm=s1360-w1360-h1020'},
+        {id: 3, alt: 'Group dining', url: 'https://lh3.googleusercontent.com/p/AF1QipMGGwmRFjuUmNIhM62pVIUJGTXrVXhkeVlbruKt=s1360-w1360-h1020'},
+        {id: 4, alt: 'Kids playing', url: 'https://lh3.googleusercontent.com/p/AF1QipM_L0k6Ogq0RklEqD5R63Tv5AheYE2XaQWpKLVA=s1360-w1360-h1020'},
+        {id: 5, alt: 'Evening bonfire', url: 'https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrW65i9S2_o0WsECzGr_ckHMTIpMLagGXbVQ5tr11CW6HkXOWdrHpg25BlsgNcSn7SSQ1WDooFQyWa3tLyA3qgrcuyUIog_4IK-_FW4O-Zr5SLEMeK508Bh_Mxc_zrITKKypAs=s1360-w1360-h1020'}
+    ],
+    next() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    },
+    prev() {
+        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    },
+    goToSlide(index) {
+        this.currentSlide = index;
+    },
+    autoAdvance() {
+        setInterval(() => {
+            this.next();
+        }, 5000);
+    }
+}" x-init="autoAdvance()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Your professional description (150-160 characters)">
+	<meta name="keywords" content="your, keywords, here">
+	<meta name="author" content="Digital Donn">
+	  
+	<!-- Open Graph / Facebook (for social sharing) -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://yourwebsite.com/">
+	<meta property="og:title" content="Your Website Title">
+	<meta property="og:description" content="Your social media description">
+	<meta property="og:image" content="https://yourwebsite.com/assets/images/social-preview.jpg">
+	  
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://yourwebsite.com/">
+	<meta property="twitter:title" content="Your Website Title">
+	<meta property="twitter:description" content="Your Twitter description">
+    <meta property="twitter:image" content="https://yourwebsite.com/assets/images/social-preview.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <title>Magnolia Fields Farms & Resort - Comfort in Nature</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        magnolia: {
+                            primary: '#6D8B74',
+                            secondary: '#EFEAD8',
+                            accent: '#D0B8A8',
+                            dark: '#5F7161',
+                            light: '#F8F4E9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://lh3.googleusercontent.com/p/AF1QipOCN2LM_pvJcjq9RoOanjwToCZBbjukb7nxfZ5e=s1360-w1360-h1020');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .room-card {
+            transition: all 0.3s ease;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Amenities icons */
+        .amenity-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #EFEAD8;
+            border-radius: 50%;
+            margin: 0 auto;
+            color: #6D8B74;
+            font-size: 36px;
+            transition: all 0.3s ease;
+        }
+
+        .amenity-card:hover .amenity-icon {
+            transform: scale(1.1);
+            background-color: #6D8B74;
+            color: #EFEAD8;
+        }
+    </style>
+</head>
+<body class="font-sans bg-magnolia-light text-magnolia-dark">
+    <!-- Floating Elements -->
+    <div class="fixed top-20 left-10 w-16 h-16 bg-magnolia-accent rounded-full opacity-20 animate-float hidden lg:block"></div>
+    <div class="fixed bottom-1/4 right-20 w-24 h-24 bg-magnolia-secondary rounded-full opacity-15 animate-float animation-delay-2000 hidden lg:block"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">            	
+                <div class="flex items-center">
+                    <a href="/">
+                      <img src="public/assets/images/logo/magnolia.png" 
+                           alt="Magnolia Resort - Luxury Cottages in Nature"
+                           class="h-10 md:h-20 w-auto">
+                    </a>                	                    
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="outline-none">
+                        <svg class="w-8 h-8 text-magnolia-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="hover:text-magnolia-primary font-medium transition duration-300">Home</a>
+                    <a href="#rooms" class="hover:text-magnolia-primary font-medium transition duration-300">Rooms</a>
+                    <a href="#gallery" class="hover:text-magnolia-primary font-medium transition duration-300">Gallery</a>
+                    <a href="#contact" class="hover:text-magnolia-primary font-medium transition duration-300">Contact</a>
+                    
+                    <!-- Dual Action Dropdown Button -->
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" 
+                                  class="bg-magnolia-accent hover:bg-magnolia-dark px-4 py-2 rounded-lg font-medium transition duration-300 flex items-center">
+                            Book Now <i class="fas fa-chevron-down ml-2 text-sm"></i>
+                        </button>
+                        <div x-show="open" @click.away="open = false" x-transition
+                               class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                            <a href="tel:+91-7875105057" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-phone-alt mr-2 text-magnolia-accent"></i> Call Now
+                            </a>
+                            <a href="https://wa.me/917875105057" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fab fa-whatsapp mr-2 text-green-500"></i> WhatsApp
+                            </a>
+                            <a href="mailto:bookings@magnoliaresort.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-envelope mr-2 text-magnolia-primary"></i> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" class="md:hidden mt-4 pb-4 space-y-4 bg-white rounded-lg p-4 shadow-xl">
+                <a href="#" class="block hover:text-magnolia-primary font-medium transition duration-300">Home</a>
+                <a href="#rooms" class="block hover:text-magnolia-primary font-medium transition duration-300">Rooms</a>
+                <a href="#gallery" class="block hover:text-magnolia-primary font-medium transition duration-300">Gallery</a>
+                <a href="#contact" class="block hover:text-magnolia-primary font-medium transition duration-300">Contact</a>
+                
+                <!-- Dual Action Dropdown Button -->
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" 
+                              class="bg-magnolia-accent hover:bg-magnolia-dark px-4 py-2 rounded-lg font-medium transition duration-300 flex items-center">
+                        Book Now <i class="fas fa-chevron-down ml-2 text-sm"></i>
+                    </button>
+                    <div x-show="open" @click.away="open = false" x-transition
+                           class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                        <a href="tel:+91-7875105057" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-phone-alt mr-2 text-magnolia-accent"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/917875105057" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <i class="fab fa-whatsapp mr-2 text-green-500"></i> WhatsApp
+                        </a>
+                        <a href="mailto:bookings@magnoliaresort.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-envelope mr-2 text-magnolia-primary"></i> Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-image h-screen flex items-center justify-center text-center text-white relative pt-16">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+        <div class="container mx-auto px-6 z-10">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6">MAGNOLIA</h1>
+            <p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto">Our cottages bring you the comfort of nature</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-magnolia-dark hover:bg-gray-100 px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Explore Cottages</button>
+                <button class="bg-transparent border-2 border-white hover:bg-white/20 px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">View Gallery</button>
+            </div>
+            <div class="mt-16 animate-bounce">
+                <a href="#rooms" class="text-white">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- highlighting contact ribbon -->
+    <section class="bg-magnolia-accent text-white py-4">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <div class="flex items-center">
+                    <i class="fas fa-phone-alt mr-2 text-xl"></i>
+                    <span class="font-bold text-lg">Call Now:</span>
+                    <a href="tel:+91-7875105057" class="ml-2 text-lg hover:underline">+91-7875105057</a>
+                </div>
+                <div class="hidden md:block">|</div>
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2 text-xl"></i>
+                    <span>Open 24/7 for bookings</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-20 bg-magnolia-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-magnolia-primary font-bold uppercase tracking-widest">Accommodations</span>
+                <h2 class="text-4xl font-serif font-bold mt-2">Our Comfortable Rooms</h2>
+                <div class="w-20 h-1 bg-magnolia-accent mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Group Room Card -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipODMr92NivLcmdvr_j-8-OTV8wsnFLkSfigyqNH=s1360-w1360-h1020" alt="Group Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-magnolia-primary text-white px-3 py-1 rounded-full text-sm font-bold">Popular</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">GROUP / NIGHT</h3>
+                            <div class="flex items-center text-magnolia-secondary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">01 Room Incl Breakfast + Lunch + High tea + Dinner</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center text-magnolia-primary">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>07-08 People</span>
+                            </div>
+                            <span class="text-xl font-bold text-magnolia-accent">₹3,299/- PP</span>
+                        </div>
+
+                        <!-- WhatsApp Booking Button -->
+                        <a href="https://wa.me/917875105057?text=Hi%20Magnolia%20Resort,%20I%20want%20to%20book%20GROUP%20room%20for%20[DATE]" 
+                            class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Instant Booking
+                        </a>
+                        
+                        <!-- Fallback Call Option -->
+                        <p class="text-center mt-2 text-sm text-gray-500">
+                            Prefer calling? <a href="tel:+91-7875105057" class="text-magnolia-primary hover:underline">+91-7875105057</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Family Room Card -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipODMr92NivLcmdvr_j-8-OTV8wsnFLkSfigyqNH=s1360-w1360-h1020" alt="Family Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">FAMILY / NIGHT</h3>
+                            <div class="flex items-center text-magnolia-secondary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">01 Room Incl Breakfast + Lunch + High tea + Dinner</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center text-magnolia-primary">
+                                <i class="fas fa-home mr-2"></i>
+                                <span>04-05 People</span>
+                            </div>
+                            <span class="text-xl font-bold text-magnolia-accent">₹3,299/- PP</span>
+                        </div>
+                        
+                        <!-- WhatsApp Booking Button -->
+                        <a href="https://wa.me/917875105057?text=Hi%20Magnolia%20Resort,%20I%20want%20to%20book%20GROUP%20room%20for%20[DATE]" 
+                            class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Instant Booking
+                        </a>
+                        
+                        <!-- Fallback Call Option -->
+                        <p class="text-center mt-2 text-sm text-gray-500">
+                            Prefer calling? <a href="tel:+91-7875105057" class="text-magnolia-primary hover:underline">+91-7875105057</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Couple Room Card -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipODMr92NivLcmdvr_j-8-OTV8wsnFLkSfigyqNH=s1360-w1360-h1020" alt="Couple Room" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-magnolia-accent text-magnolia-dark px-3 py-1 rounded-full text-sm font-bold">Romantic</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">COUPLE / NIGHT</h3>
+                            <div class="flex items-center text-magnolia-secondary">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">01 Room Incl Breakfast + Lunch + High tea + Dinner</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center text-magnolia-primary">
+                                <i class="fas fa-heart mr-2"></i>
+                                <span>02 People</span>
+                            </div>
+                            <span class="text-xl font-bold text-magnolia-accent">₹7,999/- PP</span>
+                        </div>
+                        <!-- WhatsApp Booking Button -->
+                        <a href="https://wa.me/917875105057?text=Hi%20Magnolia%20Resort,%20I%20want%20to%20book%20GROUP%20room%20for%20[DATE]" 
+                            class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition duration-300 flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i> Instant Booking
+                        </a>
+                        
+                        <!-- Fallback Call Option -->
+                        <p class="text-center mt-2 text-sm text-gray-500">
+                            Prefer calling? <a href="tel:+91-7875105057" class="text-magnolia-primary hover:underline">+91-7875105057</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="py-20 bg-magnolia-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-magnolia-primary font-bold uppercase tracking-widest">Amenities</span>
+                <h2 class="text-4xl font-serif font-bold mt-2">Resort Facilities</h2>
+                <div class="w-20 h-1 bg-magnolia-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Turf -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-magnolia-dark mb-2">Premium Turf</h3>
+                    <p class="text-gray-600">Professional-grade turf for sports and events</p>
+                </div>
+
+                <!-- AC Accommodation -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-magnolia-dark mb-2">AC Accommodation</h3>
+                    <p class="text-gray-600">All our rooms are equipped with air conditioning for your comfort</p>
+                </div>
+                
+                <!-- 4 Buffet Meals -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-magnolia-dark mb-2">4 Buffet Meals</h3>
+                    <p class="text-gray-600">Enjoy breakfast, lunch, high tea and dinner with our delicious buffet</p>
+                </div>
+                
+                <!-- Karaoke Music -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-magnolia-dark mb-2">Karaoke Music</h3>
+                    <p class="text-gray-600">Sing your heart out with our professional karaoke setup</p>
+                </div>
+                
+                <!-- Late Night Pool Access -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-magnolia-dark mb-2">Late Night Pool</h3>
+                    <p class="text-gray-600">Enjoy our swimming pool even during late night hours</p>
+                </div>
+                
+                <!-- Indoor & Outdoor Games -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-magnolia-dark mb-2">Games</h3>
+                    <p class="text-gray-600">Variety of indoor and outdoor games for all ages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Bookings Section -->
+    <section class="py-20 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c')] bg-cover bg-center bg-fixed relative">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-magnolia-dark/70"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <span class="text-magnolia-secondary font-bold uppercase tracking-widest">For Businesses</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mt-4">Corporate Retreats & Events</h2>
+                <div class="w-20 h-1 bg-magnolia-accent mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column - Images -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="h-64 rounded-xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" 
+                             alt="Team meeting" 
+                             class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="h-64 rounded-xl overflow-hidden shadow-xl mt-8">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0" 
+                             alt="Conference setup"
+                             class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="h-64 rounded-xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" 
+                             alt="Team building"
+                             class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="h-64 rounded-xl overflow-hidden shadow-xl mt-8">
+                        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e" 
+                             alt="Outdoor meeting"
+                             class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+
+                <!-- Right Column - Content -->
+                <div class="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-serif font-bold text-magnolia-dark mb-6">
+                        <i class="fas fa-building text-magnolia-accent mr-3"></i>
+                        Why Choose Magnolia for Your Corporate Event?
+                    </h3>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-magnolia-accent mt-1 mr-3"></i>
+                            <span><strong>Dedicated conference spaces</strong> with AV equipment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-magnolia-accent mt-1 mr-3"></i>
+                            <span><strong>Customizable team-building activities</strong> (treasure hunts, rafting, etc.)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-magnolia-accent mt-1 mr-3"></i>
+                            <span><strong>Exclusive group rates</strong> for 10+ guests</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-magnolia-accent mt-1 mr-3"></i>
+                            <span><strong>Private dining options</strong> with customized menus</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-magnolia-accent mt-1 mr-3"></i>
+                            <span><strong>Work-nature balance</strong> with meeting spaces overlooking nature</span>
+                        </li>
+                    </ul>
+
+                    <div class="bg-magnolia-primary/10 border-l-4 border-magnolia-primary p-4 mb-8">
+                        <p class="italic text-magnolia-dark">
+                            "Magnolia provided the perfect blend of professional facilities and relaxing ambiance for our 3-day strategy summit. The team loved the post-meeting nature walks!"<br>
+                            <span class="font-bold mt-2 block">- TechSolutions India</span>
+                        </p>
+                    </div>
+
+                    <div class="text-center">                        
+                        <a href="https://wa.me/917875105057?text=Hi%20Magnolia%20Resort,%20I%27d%20like%20to%20inquire%20about%20corporate%20booking" 
+                           class="inline-block bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-medium text-lg transition duration-300 shadow-lg hover:shadow-xl">
+                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp for Corporate Rates
+                        </a>
+                        <p class="text-sm text-gray-600 mt-3">Special coordinator assigned for groups of 15+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="parallax py-32 bg-fixed" style="background-image: url('https://lh3.googleusercontent.com/p/AF1QipMauOYdadJncjQ26-cprjKYwoJx70aqu7zZXlhH=s1360-w1360-h1020')">
+        <div class="container mx-auto px-6 text-center text-white">
+            <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Experience Nature's Comfort</h2>
+                <p class="text-xl mb-8">Our cottages bring you the perfect blend of modern amenities and natural beauty</p>
+                <button class="bg-white text-magnolia-dark hover:bg-gray-100 px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">View Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="py-20 bg-magnolia-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="font-bold uppercase tracking-widest">Resort Information</span>
+                <h2 class="text-4xl font-serif font-bold mt-2">Plan Your Stay</h2>
+                <div class="w-20 h-1 bg-white mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-serif font-bold mb-6 flex items-center">
+                        <i class="fas fa-clock mr-3 text-magnolia-secondary"></i>
+                        Check In/Out
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">CHECK IN:</span>
+                            <span class="text-lg font-bold">12.00 NOON</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">CHECK OUT:</span>
+                            <span class="text-lg font-bold">10:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-serif font-bold mb-6 flex items-center">
+                        <i class="fas fa-child mr-3 text-magnolia-secondary"></i>
+                        Child Policy
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">5 and below:</span>
+                            <span class="text-lg font-bold text-magnolia-secondary">FREE</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">8 and below:</span>
+                            <span class="text-lg font-bold">Half Rate</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">9 and above:</span>
+                            <span class="text-lg font-bold">Full Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto shadow-lg">
+                <p class="text-xl font-medium">
+                    <i class="fas fa-users text-magnolia-secondary mr-2"></i>
+                    We have capacity for <span class="font-bold">45 people</span> across our property
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-magnolia-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-magnolia-primary font-bold uppercase tracking-widest">Gallery</span>
+                <h2 class="text-4xl font-serif font-bold mt-2">Moments at Magnolia</h2>
+                <div class="w-20 h-1 bg-magnolia-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                <!-- Slider Controls -->
+                <button @click="prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-magnolia-primary w-12 h-12 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 transform hover:scale-110">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button @click="next" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-magnolia-primary w-12 h-12 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 transform hover:scale-110">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+                
+                <!-- Slider Track -->
+                <div class="flex transition-transform duration-700 ease-out" 
+                     :style="`transform: translateX(-${currentSlide * 100}%)`">
+                    <template x-for="(slide, index) in slides" :key="slide.id">
+                        <div class="w-full flex-shrink-0">
+                            <div class="relative h-96 md:h-[32rem] overflow-hidden">
+                                <img :src="slide.url" :alt="slide.alt" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end p-8 md:p-12">
+                                    <div>
+                                        <h3 x-text="slide.alt" class="text-white text-2xl md:text-3xl font-serif font-bold mb-2"></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                
+                <!-- Slider Indicators -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
+                    <template x-for="(slide, index) in slides" :key="slide.id">
+                        <button @click="goToSlide(index)" 
+                                class="w-3 h-3 rounded-full transition-all duration-300"
+                                :class="{'bg-white w-8': currentSlide === index, 'bg-white/50': currentSlide !== index}">
+                        </button>
+                    </template>
+                </div>
+            </div>
+            
+            <!-- Thumbnail Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
+                <template x-for="(slide, index) in slides" :key="slide.id">
+                    <button @click="goToSlide(index)" 
+                            class="relative h-32 md:h-40 overflow-hidden rounded-xl shadow-lg transition-all duration-300"
+                            :class="{'ring-4 ring-magnolia-primary scale-105': currentSlide === index, 'hover:scale-105': currentSlide !== index}">
+                        <img :src="slide.url" :alt="slide.alt" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center" x-show="currentSlide === index">
+                            <i class="fas fa-check text-white text-2xl"></i>
+                        </div>
+                    </button>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discount Banner -->
+    <section class="py-16 bg-gradient-to-r from-magnolia-accent to-magnolia-dark text-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Weekday Special Offer!</h2>
+                <p class="text-xl md:text-2xl mb-8">Enjoy <span class="font-bold">10% discount</span> on Monday to Thursday for Night Stays</p>
+                <button class="bg-white text-magnolia-dark hover:bg-gray-100 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Book Now & Save</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="py-16 bg-magnolia-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-magnolia-primary font-bold uppercase tracking-widest">Testimonials</span>
+                <h2 class="text-4xl font-serif font-bold mt-2">Google Reviews</h2>
+                <div class="w-20 h-1 bg-magnolia-accent mx-auto mt-4"></div>
+            </div>
+            
+            <!-- Google Maps Embed (Reviews) -->
+            <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.815957758372!2d73.3991649749547!3d19.07182775210409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa41eb9403f6d3c7b%3A0xe2907e5ea6094f91!2sMagnolia%20Fields%20Farms%20%26%20Resort!5e0!3m2!1sen!2sin!4v1748698126509!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-magnolia-dark text-white pt-20 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <img class="h-20 md:h-40" src="public/assets/images/logo/magnolia.png">                    
+                    <p class="mb-6 text-gray-300">Our cottages bring you the comfort of nature with modern amenities.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-magnolia-primary/20 hover:bg-magnolia-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-magnolia-primary/20 hover:bg-magnolia-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-magnolia-primary/20 hover:bg-magnolia-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-magnolia-primary/20 hover:bg-magnolia-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-tripadvisor"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Information</h4>
+                    <address class="not-italic text-gray-300 space-y-4">
+                        <p class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-magnolia-secondary mt-1 mr-3"></i>
+                            <span>58/1 Vare Village,<br>Karjat-Murbad Road,<br>Karjat 410201</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone-alt text-magnolia-secondary mr-3"></i>
+                            +91-7875105057
+                        </p>
+                    </address>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <a href="#" class="flex items-center hover:text-magnolia-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> Home
+                        </a>
+                        <a href="#rooms" class="flex items-center hover:text-magnolia-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> Rooms
+                        </a>
+                        <a href="#gallery" class="flex items-center hover:text-magnolia-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> Gallery
+                        </a>
+                        <a href="#contact" class="flex items-center hover:text-magnolia-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Magnolia Resort. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- sticky desktop bar contact  -->
+    <div class="hidden md:block fixed bottom-0 left-0 right-0 bg-magnolia-dark text-white py-3 z-40">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div>
+                <span class="font-bold">Ready to book your stay?</span>
+                <span class="ml-2">Call us for best rates!</span>
+            </div>
+            <a href="tel:+91-7875105057" class="bg-magnolia-accent hover:bg-magnolia-primary px-6 py-2 rounded-lg font-medium transition duration-300">
+                <i class="fas fa-phone mr-2"></i> +91-7875105057
+            </a>
+        </div>
+    </div>
+
+    <!--  whats app button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/917875105057" class="flex items-center justify-center w-16 h-16 rounded-full bg-magnolia-primary hover:bg-magnolia-dark text-white shadow-xl animate-bounce">
+            <i class="fas fa-phone text-2xl"></i>
+        </a>
+    </div>
+</body>
+</html>
